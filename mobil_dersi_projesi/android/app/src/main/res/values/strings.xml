@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MobilOdeviProjesi</string>
+    <string name="facebook_app_id">1622865144565989</string>
+    <string name="fb_login_protocol_scheme">fb1622865144565989</string>
+</resources>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "67815307427",
+    "project_id": "mobilodeviprojesi",
+    "storage_bucket": "mobilodeviprojesi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67815307427:android:fa85ec0426d4db03cf6716",
+        "android_client_info": {
+          "package_name": "com.example.mobil_dersi_projesi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "67815307427-fuk6dnqgmu79kr37sfeshl11j3d6urj9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobil_dersi_projesi",
+            "certificate_hash": "a2ec8f8fe34c57e0d88204daa8d04aeb9c7976c2"
+          }
+        },
+        {
+          "client_id": "67815307427-moln11d8o4glc1n2rvtahji46e6kr5qc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyr6o8lV15fsTGCdppWO615IKWRXi2BrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "67815307427-moln11d8o4glc1n2rvtahji46e6kr5qc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
