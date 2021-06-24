@@ -7,6 +7,7 @@ import 'package:mobil_dersi_projesi/app/finalkismiscreens/television_screen.dart
 import 'package:mobil_dersi_projesi/app/screens/about_screen.dart';
 import 'package:mobil_dersi_projesi/core/userviewmodel/user_view_model.dart';
 import 'package:mobil_dersi_projesi/utilities/constans.dart';
+import 'package:pie_chart/pie_chart.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,6 +23,15 @@ class _HomeScreenState extends State<HomeScreen>
   Animation<double> _scaleAnimation;
   Animation<Offset> _menuOffsetAnimation;
   Duration _duration = Duration(milliseconds: 500);
+
+  Map<String, double> odulAlanEnFazlaKategori = {
+    "Aksiyon": 5,
+    "Drama": 11,
+    "Bilim Kurgu": 6,
+    "Komedi": 11,
+    "Romantik" : 5,
+    "Gerilim" : 5
+  };
 
   @override
   void initState() {
@@ -205,70 +215,109 @@ class _HomeScreenState extends State<HomeScreen>
           color: backGroundColor,
           borderRadius:
               menuAcikMi ? BorderRadius.all(Radius.circular(30)) : null,
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  InkWell(
-                      onTap: () {
-                        setState(() {
-                          if (menuAcikMi) {
-                            _animationController.reverse();
-                          } else {
-                            _animationController.forward();
-                          }
-                          menuAcikMi = !menuAcikMi;
-                        });
-                      },
+          child: SingleChildScrollView(
+
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    InkWell(
+                        onTap: () {
+                          setState(() {
+                            if (menuAcikMi) {
+                              _animationController.reverse();
+                            } else {
+                              _animationController.forward();
+                            }
+                            menuAcikMi = !menuAcikMi;
+                          });
+                        },
+                        child: Icon(
+                          Icons.menu,
+                          color: Colors.white,
+                        )),
+                    Text(
+                      "Anasayfa",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Opacity(
+                      opacity: 0,
                       child: Icon(
                         Icons.menu,
                         color: Colors.white,
-                      )),
-                  Text(
-                    "Anasayfa",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Opacity(
-                    opacity: 0,
-                    child: Icon(
-                      Icons.menu,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 16),
-                height: ekranYuksekligi * 0.5,
-                width: ekranGenisligi,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: PageView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Image.asset("assets/resimler/her.png"),
-                          Image.asset("assets/resimler/argo.png"),
-                          Image.asset("assets/resimler/blackmirror.png"),
-                          Image.asset("assets/resimler/artist.png"),
-                          Image.asset("assets/resimler/astarisborn.png"),
-                          Image.asset("assets/resimler/hollywood.png"),
-                          Image.asset("assets/resimler/lost.png"),
-                          Image.asset("assets/resimler/moonlight.png"),
-                        ],
                       ),
                     ),
                   ],
                 ),
-              )
-            ],
+                Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 16),
+                      height: ekranYuksekligi * 0.5,
+                      width: ekranGenisligi,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: PageView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                Image.asset("assets/resimler/her.png"),
+                                Image.asset("assets/resimler/argo.png"),
+                                Image.asset("assets/resimler/blackmirror.png"),
+                                Image.asset("assets/resimler/artist.png"),
+                                Image.asset("assets/resimler/astarisborn.png"),
+                                Image.asset("assets/resimler/hollywood.png"),
+                                Image.asset("assets/resimler/lost.png"),
+                                Image.asset("assets/resimler/moonlight.png"),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("Sevebileceğini Düşündüğümüz Bazı Film Ve Diziler",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 16),),
+                          ),
+                          Divider(color: Colors.grey.shade600,),
+                        ],
+                      ),
+                    ),
+                    Text("En Fazla Ödül Alan Kategoriler",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 16),),
+                    PieChart(
+                      dataMap: odulAlanEnFazlaKategori,
+                      animationDuration: Duration(milliseconds: 800),
+                      chartLegendSpacing: 32,
+                      chartRadius: ekranGenisligi * 1/2,
+                      initialAngleInDegree: 0,
+                      chartType: ChartType.disc,
+                      ringStrokeWidth: 32,
+                      centerText: "Kategoriler",
+                      legendOptions: LegendOptions(
+                        showLegendsInRow: false,
+                        legendPosition: LegendPosition.right,
+                        showLegends: true,
+                        legendTextStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                      ),
+                      chartValuesOptions: ChartValuesOptions(
+                        showChartValueBackground: true,
+                        showChartValues: true,
+                        showChartValuesInPercentage: false,
+                        showChartValuesOutside: false,
+                        decimalPlaces: 0,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

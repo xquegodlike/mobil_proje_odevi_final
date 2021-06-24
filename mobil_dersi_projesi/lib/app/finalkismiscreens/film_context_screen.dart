@@ -62,7 +62,7 @@ class _FilmContextScreenState extends State<FilmContextScreen> {
                             Text(
                               film.film_ad,
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w300),
+                                  fontSize: 16, fontWeight: FontWeight.w300,color: Colors.white,),
                             ),
                           ],
                         ),

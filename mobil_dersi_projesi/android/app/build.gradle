@@ -41,7 +41,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.mobil_dersi_projesi"
+        applicationId "com.filmim_cepte_projesi"
         minSdkVersion 16
         targetSdkVersion 30
         multiDexEnabled true

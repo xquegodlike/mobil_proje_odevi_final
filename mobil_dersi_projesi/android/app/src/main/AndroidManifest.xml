@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mobil_dersi_projesi">
+    package="com.filmim_cepte_projesi">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:label="mobil_dersi_projesi"
+        android:label="Filmim Cepte"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,4 @@
-package com.example.mobil_dersi_projesi
+package com.filmim_cepte_projesi
 
 import io.flutter.embedding.android.FlutterActivity
 
